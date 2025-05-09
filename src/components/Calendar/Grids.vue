@@ -8,7 +8,7 @@
         </div>
         <div v-for="(_, day) in DAYS_IN_WEEK" :key="day" class="week-day grid-rows-24">
             <DayEvents :events="weekEvent[getWeekDate(day)]" />
-            <div class="day-hours">{{ getWeekDateHuman(day) }}</div>
+            <div class="day-hours-title">{{ getWeekDateHuman(day) }}</div>
             <div class="day-hours" v-for="hr in HRS_IN_DAY" :key="hr" />
         </div>
     </div>
@@ -55,10 +55,18 @@ function getTime(index: number) {
     display: contents;
 }
 
+.day-hours-title {}
+
+.day-hours:hover {
+    transform: scale(1.02);
+    background-color: gray;
+}
+
 .day-hours {
     outline: 1px solid gray;
     width: 100%;
     height: 100%;
+    cursor: pointer;
 }
 
 .grid-rows-24 {
@@ -68,11 +76,11 @@ function getTime(index: number) {
 
 .hours {
     text-align: end;
-    padding: 8px 12px;
+    padding: 0 12px 16px 12px;
 }
 
 .week-day {
-    outline: 1px solid black;
-    height: 100%
+    height: 100%;
+    position: relative;
 }
 </style>

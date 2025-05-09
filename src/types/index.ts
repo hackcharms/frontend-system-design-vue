@@ -3,5 +3,6 @@ export type CalendarEvent = {
     startTime: number;
     endTime: number;
     title: string;
+    readable?: string;
     description: string;
 }
